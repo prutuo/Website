@@ -1,0 +1,132 @@
+<html>
+  <head>
+  </head>
+
+  <body>
+    <title>Home</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <div class="fullscreen-bg">
+      <img src="images/404pagebg.jpg" alt="Background Image">
+    </div>
+    
+    <button type="button" name="ProxyButton">Unblocker</button>
+    <button type="button" name="GamesButton">Games</button>
+
+    <script>
+      var proxyUrl = "https://surana.autoprin.com/";
+
+      if (proxyUrl) {
+        var proxyWin;
+
+        function openProxy() {
+          if (proxyWin) {
+            proxyWin.focus();
+          } else {
+            proxyWin = window.open();
+            proxyWin.document.body.style.margin = '0';
+            proxyWin.document.body.style.height = '100vh';
+            var iframe = proxyWin.document.createElement('iframe');
+            iframe.style.border = 'none';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.margin = '0';
+            iframe.src = proxyUrl;
+            proxyWin.document.body.appendChild(iframe);
+          }
+        }
+
+        document.querySelector('button[name="ProxyButton"]').onclick = function() {
+          openProxy();
+        };
+      }
+    </script>
+
+    <script>
+      var gamesUrl = "C:\Users\Mrnin\Documents\GitHub\Website\Eggy Car_files\Eggy Car.html";
+
+      if (gamesUrl) {
+        var gamesWin;
+
+        function openGames() {
+          if (gamesWin) {
+            gamesWin.focus();
+          } else {
+            gamesWin = window.open();
+            gamesWin.document.body.style.margin = '0';
+            gamesWin.document.body.style.height = '100vh';
+            var iframe = gamesWin.document.createElement('iframe');
+            iframe.style.border = 'none';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.margin = '0';
+            iframe.src = gamesUrl;
+            gamesWin.document.body.appendChild(iframe);
+          }
+        }
+
+        document.querySelector('button[name="GamesButton"]').onclick = function() {
+          openGames();
+        };
+      }
+    </script>
+
+  </body>
+</html>
+
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+  }
+
+  button {
+    font-family: 'Satoshi', sans-serif;
+    color: #cdd5fe;
+    background-color: #182b4e;
+    font-size: 19px;
+    border: 1px solid #2d63c8;
+    border-radius: 30px;
+    padding: 15px 50px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    color: #3a69b6;
+    background-color: #ffffff;
+  }
+
+  .fullscreen-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .fullscreen-bg img {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: auto;
+    max-width: 100%;
+  }
+
+  @font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-Variable.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+</style>
