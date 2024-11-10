@@ -1,145 +1,54 @@
-<html>
-  <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5074930026239254"
-     crossorigin="anonymous"></script>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-TFBJF5JR');</script>
-  <!-- End Google Tag Manager -->
-  </head>
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="./style.css">
 
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TFBJF5JR"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-    <title>Home</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <div class="fullscreen-bg">
-      <img src="images/404pagebg.jpg" alt="Background Image">
-    </div>
-    
-    <button type="button" name="ProxyButton">Unblocker</button>
-    <button type="button" name="GamesButton">Games</button>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html lang="en">
+ 
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio Website</title>
+</head>
+<body>
+    <header>
+        <a href="https://prutuo.dev" class="logo">prutuo</a>
 
-    <script>
-      var proxyUrl = "https://surana.autoprin.com/";
+        <nav>
+            <a href="https://prutuo.dev" class="active"> Home</a>
+            <a href="#" >Games</a>
 
-      if (proxyUrl) {
-        var proxyWin;
-
-        function openProxy() {
-          if (proxyWin) {
-            proxyWin.focus();
-          } else {
-            proxyWin = window.open();
-            proxyWin.document.body.style.margin = '0';
-            proxyWin.document.body.style.height = '100vh';
-            var iframe = proxyWin.document.createElement('iframe');
-            iframe.style.border = 'none';
-            iframe.style.width = '100%';
-            iframe.style.height = '100%';
-            iframe.style.margin = '0';
-            iframe.src = proxyUrl;
-            proxyWin.document.body.appendChild(iframe);
-          }
-        }
-
-        document.querySelector('button[name="ProxyButton"]').onclick = function() {
-          openProxy();
-        };
-      }
-    </script>
-
-    <script>
-      var gamesUrl = "https://webglmath.github.io/eggy-car/";
-
-      if (gamesUrl) {
-        var gamesWin;
-
-        function openGames() {
-          if (gamesWin) {
-            gamesWin.focus();
-          } else {
-            gamesWin = window.open();
-            gamesWin.document.body.style.margin = '0';
-            gamesWin.document.body.style.height = '100vh';
-            var iframe = gamesWin.document.createElement('iframe');
-            iframe.style.border = 'none';
-            iframe.style.width = '100%';
-            iframe.style.height = '100%';
-            iframe.style.margin = '0';
-            iframe.src = gamesUrl;
-            gamesWin.document.body.appendChild(iframe);
-          }
-        }
-
-        document.querySelector('button[name="GamesButton"]').onclick = function() {
-          openGames();
-        };
-      }
-    </script>
-
-  </body>
+    </header>
+    <section class="home">
+        <div class="home-img">
+            <img id="profile"src="https://github.com/prutuo/Website/blob/main/images/profilepicture.JPG?raw=true" 
+                 onclick='window.open("https://www.youtube.com/watch?v=g9kiuQ1pql8");return false;' ">
+        </div>
+        <div class="home-content">
+            <h1>Hi, Im <span>prutuo</span></h1>
+            <h3 class="typing-text">I'm a <span></span></h3>
+            <p>I make low poly models in Blender and make VR games in Unity.</p>
+            <div class="social-icons">
+              
+                <a href="#"><i onclick='window.open("https://youtube.com/@prutuo");return false;' class="fa-brands fa-youtube"></i></a> 
+                <a href="#"><i onclick='window.open("https://github.com/prutuo");return false;' class="fa-brands fa-github"></i></a> 
+              <a href="#"><i onclick='window.open("https://discord.gg/QgpGGhuMtf");return false;' class="fa-brands fa-discord"></i></a> 
+              <a href="#"><i onclick='window.open("https://x.com/prutuo");return false;' class="fa-brands fa-x-twitter"></i></a> 
+            </div>
+            <a href="https://ia904609.us.archive.org/4/items/rick-roll/Rick%20Roll.mp4?autoplay=1" target="_blank" class="btn">DONT CLICK</a> 
+        </div>
+    </section>
+</body>
 </html>
+<!-- partial -->
+  <script  src="./script.js"></script>
 
-<style>
-  body, html {
-    height: 100%;
-    margin: 0;
-  }
-
-  button {
-    font-family: 'Satoshi', sans-serif;
-    color: #cdd5fe;
-    background-color: #182b4e;
-    font-size: 19px;
-    border: 1px solid #2d63c8;
-    border-radius: 30px;
-    padding: 15px 50px;
-    cursor: pointer;
-  }
-
-  button:hover {
-    color: #3a69b6;
-    background-color: #ffffff;
-  }
-
-  .fullscreen-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
-  }
-
-  .fullscreen-bg img {
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-  }
-
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    height: auto;
-    max-width: 100%;
-  }
-
-  @font-face {
-    font-family: 'Satoshi';
-    src: url('/fonts/Satoshi-Variable.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-</style>
+</body>
+</html>
