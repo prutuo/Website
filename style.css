@@ -22,7 +22,7 @@ body{
     overflow-x: hidden;
     background: conic-gradient(#9766FF, #c2a5ff, #9766FF); 
       -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(30px);
+    backdrop-filter: blur(70px);
     color: white;
 }
 
