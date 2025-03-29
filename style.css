@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
+u { 
+  text-decoration: underline;
+}
 
 *{
     cursor: url(https://raw.githubusercontent.com/prutuo/Website/refs/heads/main/images/curselect.cur),auto;
@@ -226,21 +229,6 @@ span{
 @keyframes cursor{
     to{
         border-left: 3px solid #F1FF66;
-    }
-}
-
-@keyframes words{
-    0%, 20%{
-        content: "Game Developer";
-    }
-    21%, 40%{
-        content: "Modeler";
-    }
-    41%, 60%{
-        content: "Beginning Artist";
-    }
-    61%, 80%{
-        content: "Content Creator";
     }
 }
 
