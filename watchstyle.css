@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Kanit', sans-serif;
+  color: #ffffff;
+  background: 
+    radial-gradient(
+        circle, 
+        hsl(210, 20%, 10%) 0%, 
+        hsl(210, 20%, 10%) 100%
+      ),
+    linear-gradient(
+        344deg, 
+        hsl(210, 20%, 15%),
+        hsl(220, 20%, 10%),
+        hsl(210, 20%, 15%)
+      );
+  display: grid;
+  height: 100vh;
+  place-items: center;
+}
+
+.logo {
+  position: absolute;
+  top: 0px;
+  left: 20px;
+  width: 100px;
+  height: auto;
+  z-index: 1000; /* Higher z-index to ensure it's on top */
+}
+
+.navigation {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%; /* Stretch across the screen horizontally */
+  position: fixed; /* Fixed position to stay at the top */
+  top: 0; /* Stick to the top of the viewport */
+  z-index: 999; /* Ensure it's above other content */
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)); /* Fade out on the right side */
+  backdrop-filter: blur(10px);
+}
+
+.navigation a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 18px;
+  font-family: 'Kanit', sans-serif;
+}
+
+.navigation .movies {
+  color: #ffffff; /* White color */
+  font-family: 'Kanit', sans-serif; /* Kanit font */
+}
+
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.search-container {
+  text-align: center;
+  margin-top: 40px; /* Increase the top margin to create more space */
+  margin-bottom: 20px; /* Adjust bottom margin as needed */
+}
+
+.search-box {
+  padding: 10px;
+  border: none; 
+  border-radius: 5px;
+  width: 300px;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: #ffffff;
+  outline: none;
+  font-family: 'Kanit', sans-serif;
+  backdrop-filter: blur(10px); 
+  background: 
+    radial-gradient(
+        circle, 
+        hsl(210, 20%, 15%) 0%, 
+        hsl(210, 20%, 15%) 100%
+      ),
+    linear-gradient(
+        344deg, 
+        hsl(210, 20%, 20%),
+        hsl(220, 20%, 15%),
+        hsl(210, 20%, 20%)
+      );
+}
+
+/* Style for scrollbar */
+/* Width and height of the scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Style for scrollbar track */
+::-webkit-scrollbar-track {
+  background: 
+    radial-gradient(
+        circle, 
+        hsl(210, 20%, 15%) 0%, 
+        hsl(210, 20%, 15%) 100%
+      ),
+    linear-gradient(
+        344deg, 
+        hsl(210, 20%, 20%),
+        hsl(220, 20%, 15%),
+        hsl(210, 20%, 20%)
+      );
+}
+
+/* Style for scrollbar thumb (slider) */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.8)); /* Gradient background */
+  border-radius: 5px; /* Round the corners */
+  border: 2px solid transparent; /* Transparent border */
+  background-clip: padding-box; /* Clip to the inside of the scrollbar */
+}
+
+/* On hover, make scrollbar thumb lighter */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 1));
+}
+
+.movie-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movie-list li {
+  margin: 0 10px 20px;
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.movie-list li p {
+  font-family: 'Kanit', sans-serif;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 190px; /* Adjust this value as needed */
+  margin: 0; /* Remove default margin */
+}
+
+.movie-list li img {
+  width: 150px;
+  height: 220px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-sizing: border-box; /* Ensure box-sizing is border-box */
+  position: relative;
+}
+
+/* Backglow effect */
+.movie-list li img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  border-radius: 5px;
+  animation: animateGlow 10s ease infinite;
+}
+.genre-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.genre-button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #ffffff;
+  background: 
+    radial-gradient(
+        circle, 
+        hsl(210, 20%, 15%) 0%, 
+        hsl(210, 20%, 15%) 100%
+      ),
+    linear-gradient(
+        344deg, 
+        hsl(210, 20%, 20%),
+        hsl(220, 20%, 15%),
+        hsl(210, 20%, 20%)
+      );
+  cursor: pointer;
+  font-family: 'Kanit', sans-serif;
+  outline: none;
+}
+
+.genre-button:hover {
+  background: 
+    radial-gradient(
+        circle, 
+        hsl(210, 20%, 20%) 0%, 
+        hsl(210, 20%, 20%) 100%
+      ),
+    linear-gradient(
+        344deg, 
+        hsl(210, 20%, 25%),
+        hsl(220, 20%, 20%),
+        hsl(210, 20%, 25%)
+      );
+}
+
+@keyframes animateGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

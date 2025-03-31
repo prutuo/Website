@@ -44,6 +44,28 @@ header{
     z-index: 100;
 }
 
+heading{
+    margin-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 45%;
+    padding: 1rem 9%;
+    background-color: transparent;
+    filter: drop-shadow(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo2{
+    font-size: 6rem;
+    color: #F1FF66;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
 .logo{
     font-size: 6rem;
     color: #F1FF66;
