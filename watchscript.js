@@ -1,64 +1,65 @@
 const apiKey = 'bd1e77ed2c8a0a156c6f75e26fb8896b'; // Your TMDb API key
 
 const searchInput = document.querySelector('.search-box');
-const tvList = document.querySelector('.tv-list');
+const movieList = document.querySelector('.movie-list');
 let timeoutId;
 let page = 1; // Track the current page number
-let fetchingShows = false; // Flag to prevent concurrent fetch requests
+let fetchingMovies = false; // Flag to prevent concurrent fetch requests
 
-// Function to fetch and display TV shows
-function fetchTVShows(url) {
-  fetchingShows = true; // Set flag to indicate fetching is in progress
+
+// Function to fetch and display movies
+function fetchMovies(url) {
+  fetchingMovies = true; // Set flag to indicate fetching is in progress
   fetch(url)
     .then(response => response.json())
     .then(data => {
-      data.results.forEach(show => {
+      data.results.forEach(movie => {
         const listItem = document.createElement('li');
         const image = document.createElement('img');
-        if (show.poster_path) {
-          image.src = `https://image.tmdb.org/t/p/w200${show.poster_path}`;
-          image.alt = show.name;
+        if (movie.poster_path) {
+          image.src = `https://image.tmdb.org/t/p/w200${movie.poster_path}`;
+          image.alt = movie.title;
         } else {
-          image.src = `https://github.com/prutuo/website/blob/main/404.png?raw=true`;
+          image.src = `https://github.com/Prutuo/theque/blob/main/404.png?raw=true`;
           image.alt = "404 Error";
         }
         image.addEventListener('click', () => {
-          openEmbeddedPlayerInNewTab(show.id); // Open embedded player in new tab with show ID
+          openEmbeddedPlayerInNewTab(movie.id); // Open embedded player in new tab with movie ID
         });
         listItem.appendChild(image);
         const title = document.createElement('p');
-        title.textContent = show.name;
+        title.textContent = movie.title;
         listItem.appendChild(title);
-        tvList.appendChild(listItem);
+        movieList.appendChild(listItem);
       });
-      fetchingShows = false; // Reset flag after fetching is complete
+      fetchingMovies = false; // Reset flag after fetching is complete
     })
     .catch(error => {
       console.error('Error fetching data:', error);
-      fetchingShows = false; // Reset flag if there's an error
+      fetchingMovies = false; // Reset flag if there's an error
     });
 }
 
-// Function to open embedded player in new tab with TV show ID
-function openEmbeddedPlayerInNewTab(showId) {
+// Function to open embedded player in new tab with movie ID
+function openEmbeddedPlayerInNewTab(movieId) {
   // Open a new tab with the embedded player URL
-  window.open(`https://embed.su/embed/tv/${showId}`, '_blank');
+  window.open(`https://vidsrc.pro/embed/movie/${movieId}`, '_blank');
 }
 
-// Function to fetch and display popular TV shows
-function fetchPopularTVShows() {
-  fetchTVShows(`https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}&language=en-US&page=${page}`);
+// Function to fetch and display popular movies
+function fetchPopularMovies() {
+  fetchMovies(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=${page}`);
 }
 
-// Call the function to fetch and display popular TV shows on page load
-fetchPopularTVShows();
+// Call the function to fetch and display popular movies on page load
+fetchPopularMovies();
 
 // Event listener for scroll events
 window.addEventListener('scroll', function() {
   // Check if the user has scrolled to the bottom of the page
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight && !fetchingShows) {
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight && !fetchingMovies) {
     page++; // Increment page number
-    fetchPopularTVShows(); // Fetch more TV shows
+    fetchPopularMovies(); // Fetch more movies
   }
 });
 
@@ -69,18 +70,18 @@ searchInput.addEventListener('input', function() {
     const query = this.value.trim();
     if (query !== '') {
       page = 1; // Reset page number for new search
-      tvList.innerHTML = ''; // Clear previous results
-      fetchTVShows(`https://api.themoviedb.org/3/search/tv?api_key=${apiKey}&query=${query}&page=${page}`);
+      movieList.innerHTML = ''; // Clear previous results
+      fetchMovies(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&page=${page}`);
     } else {
-      fetchPopularTVShows(); // If search input is empty, fetch and display popular TV shows again
+      fetchPopularMovies(); // If search input is empty, fetch and display popular movies again
     }
   }, 500); // Delay search by 500 milliseconds
 });
+// Function to fetch and display movies by genre
+function fetchMoviesByGenre(genreId) {
+  const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genreId}&language=en-US&page=${page}`;
 
-// Function to fetch and display TV shows by genre
-function fetchTVShowsByGenre(genreId) {
-  const url = `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&with_genres=${genreId}&language=en-US&page=${page}`;
-  fetchTVShows(url);
+  fetchMovies(url);
 }
 
 // Event listener for genre buttons
@@ -89,11 +90,20 @@ genreButtons.forEach(button => {
   button.addEventListener('click', () => {
     const genreId = button.dataset.genreId;
     page = 1; // Reset page number
-    tvList.innerHTML = ''; // Clear previous results
-    fetchTVShowsByGenre(genreId);
+    movieList.innerHTML = ''; // Clear previous results
+    fetchMoviesByGenre(genreId);
   });
 });
 
-document.addEventListener("click", function(event) {
-  event.preventDefault(); // Prevent pop-up triggers from links or scripts
-}, true);
+// Save original window.open
+const originalOpen = window.open;
+
+// Override window.open
+window.open = function(url, name, specs) {
+    if (url.includes("embed.su")) {
+        return originalOpen(url, name, specs); // Allow pop-up
+    } else {
+        console.warn("Pop-up blocked: " + url);
+        return null; // Block pop-up
+    }
+};
