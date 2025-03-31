@@ -43,7 +43,7 @@ function fetchMovies(url) {
 // Function to open embedded player in new tab with movie ID
 function openEmbeddedPlayerInNewTab(movieId) {
   // Open a new tab with the embedded player URL
-  window.open(`https://vidsrc.pro/embed/movie/${movieId}`, '_blank');
+  window.open(`https://embed.su/embed/movie/${movieId}`, '_blank');
 }
 
 // Function to fetch and display popular movies
