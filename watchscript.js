@@ -100,7 +100,7 @@ const originalOpen = window.open;
 
 // Override window.open
 window.open = function(url, name, specs) {
-    if (url.includes("embed.su")) {
+    if (url.includes("embed.su") || url.includes("vidsrc.pro")) {
         return originalOpen(url, name, specs); // Allow pop-up
     } else {
         console.warn("Pop-up blocked: " + url);
