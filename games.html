@@ -1,61 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>prutuo's tools & stufff</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script disable-devtool-auto src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<html lang="en">
- 
-<head> 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
-    <title>Portfolio Website</title>
-</head>
-<body>
-    <header>
-        <a href="https://prutuo.dev" class="logo">prutuo.dev</a>
+  <header>
+    <a href="https://prutuo.dev" class="logo">da games -more coming soon</a>
+    <nav>
+      <a href="https://prutuo.dev">Home</a>
+      <a href="https://prutuo.dev/yeepsrecipes" class="active">Games</a>
+    </nav>
+  </header>
 
-        <nav>
-            <a href="https://prutuo.dev" > Home</a>
-            <a href="https://prutuo.dev/yeepsrecipes" class="active" >Games</a>
-
-
-    </header>
-    <section class="home">
-    </div>
+  <section class="home">
     <div class="home-content">
-        <h1><span>da games section</span></h1>
-        <p>no ads</p>
-        <div class="game-buttons">
-          <a href="https://freepacman.org" target="game_frame">Classic Retro Games</a> 
-          <a href="https://kdata1.com/2020/10/House_of_Hazards/" target="game_frame">House Of Hazards</a> 
-        </div>
-
-        <div class="game-frame">
-          <iframe src="https://prutuo.dev/blank" id="game_frame" style="border:0px #ffffff none;" name="game_frame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="800px" width="1200px" allowfullscreen></iframe>
-          <a href="#" onclick="goFullscreen()">Fullscreen</a> 
-        </div>
+      <div class="game-buttons">
+        <a href="#" onclick="openGame('https://freepacman.org')">Pac Man</a>
+        <a href="#" onclick="openGame('https://htmlxm.github.io/h/house-of-hazards/')">House Of Hazards</a>
+        <a href="#" onclick="openGame('https://freetoplayz.github.io/ragdoll-hit/')">Ragdoll Hit</a>
+        <a href="#" onclick="openGame('https://1v1lol.me/1v1lol/')">1v1.lol</a>
+        <a href="#" onclick="openGame('https://www.rocketgames.io/gameframe/shell-shockers')">Shell Shockers</a>
+        <a href="#" onclick="openGame('https://paperio2online.github.io/file/')">Paper Io</a>
+      </div>
     </div>
+  </section>
+
   <script>
-    function goFullscreen() {
-      const iframe = document.getElementById('game_frame');
-      if (iframe.requestFullscreen) {
-        iframe.requestFullscreen();
-      } else if (iframe.webkitRequestFullscreen) {
-        iframe.webkitRequestFullscreen(); // Safari
-      } else if (iframe.msRequestFullscreen) {
-        iframe.msRequestFullscreen(); // IE11
-      }
+    function openGame(url) {
+      const win = window.open();
+      const iframe = win.document.createElement('iframe');
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      iframe.style.border = "none";
+      iframe.src = url;
+      win.document.body.style.margin = "0";
+      win.document.body.appendChild(iframe);
     }
   </script>
-  </div>
-    </section>
-</body>
-</html>
 </body>
 </html>
